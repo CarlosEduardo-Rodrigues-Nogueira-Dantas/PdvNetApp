@@ -24,8 +24,9 @@
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="50"/>
                     <DataGridTextColumn Header="Nome" Binding="{Binding Nome}" Width="*"/>
-                    <DataGridTextColumn Header="Preço" Binding="{Binding Preco}" Width="100"/>
-                    <DataGridTextColumn Header="Qtd" Binding="{Binding Quantidade}" Width="70"/>
+                    <DataGridTextColumn Header="Descricao" Binding="{Binding Descricao}" Width="*"/>
+                    <DataGridTextColumn Header="Preço" Binding="{Binding Preco}" Width="*"/>
+                    <DataGridTextColumn Header="Qtd" Binding="{Binding Quantidade}" Width="50"/>
                 </DataGrid.Columns>
             </DataGrid>
         </DockPanel>

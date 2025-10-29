@@ -7,7 +7,7 @@
         xmlns:conv="clr-namespace:PdvNetApp.UI.Converters"
         mc:Ignorable="d"
         Title="ProdutoFormWindow"
-        Height="450" Width="800"
+        Height="250" Width="800"
         WindowStartupLocation="CenterOwner"
         ResizeMode="NoResize">
     <Window.Resources>
@@ -15,6 +15,8 @@
     </Window.Resources>
     <Grid Margin="20">
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -41,7 +43,15 @@
                  Text="{Binding Produto.Quantidade, UpdateSourceTrigger=PropertyChanged}"
                  Width="220"/>
 
-        <Button Grid.Row="3"
+        <Label Grid.Row="3" Content="Descrição:"/>
+        <TextBox Grid.Row="3" Margin="80 0 0 10"
+                 Text="{Binding Produto.Descricao, UpdateSourceTrigger=PropertyChanged}"
+                 Width="220"
+                 AutomationProperties.IsRequiredForForm="True"
+                 AutomationProperties.IsRowHeader="True"
+                 AutomationProperties.Name="Digite o nome do produto"/>
+
+            <Button Grid.Row="4"
                 Content="Salvar"
                 Width="100"
                 Height="50"

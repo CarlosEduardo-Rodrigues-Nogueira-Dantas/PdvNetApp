@@ -17,6 +17,7 @@ namespace PdvNetApp.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Nome = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Descricao = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Preco = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
                     Quantidade = table.Column<int>(type: "int", nullable: false),
                     DataDeCriacao = table.Column<DateTime>(type: "datetime2", nullable: false)
