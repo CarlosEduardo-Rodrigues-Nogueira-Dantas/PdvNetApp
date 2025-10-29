@@ -38,6 +38,12 @@ namespace PdvNetApp.UI.ViewModels
         public ICommand EditarCommand { get; }
         public ICommand ExcluirCommand { get; }
 
+        public ICommand AbrirDashboardCommand {get; } = new RelayCommand(_ =>
+        {
+            var dashboard = new DashboardWindow();
+            dashboard.Show();
+        });
+
         public MainViewModel(ProdutoService service)
         {
             _service = service;
@@ -97,5 +103,6 @@ namespace PdvNetApp.UI.ViewModels
                 Produtos.Remove(Selecionado);
             }
         }
-    }
+     
+     }
 }
