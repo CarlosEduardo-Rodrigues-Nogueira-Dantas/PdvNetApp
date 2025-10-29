@@ -29,6 +29,8 @@ namespace PdvNetApp.UI.ViewModels
             {
                 _selecionado = value;
                 OnPropertyChanged();
+
+                CommandManager.InvalidateRequerySuggested();
             }
         }
 

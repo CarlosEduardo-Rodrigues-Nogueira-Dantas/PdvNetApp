@@ -3,7 +3,7 @@ using System.Windows.Input;
 
 namespace PdvNetApp.UIWPF.Commands
 {
-    internal class RelayCommand : ICommand
+    public class RelayCommand : ICommand
     {
         private readonly Action<object?> _execute;
         private readonly Predicate<object?>? _canExecute;
@@ -14,9 +14,14 @@ namespace PdvNetApp.UIWPF.Commands
             _canExecute = canExecute;
         }
 
+        // 🔹 Aqui conectamos o evento ao CommandManager do WPF
+        public event EventHandler? CanExecuteChanged
+        {
+            add => CommandManager.RequerySuggested += value;
+            remove => CommandManager.RequerySuggested -= value;
+        }
+
         public bool CanExecute(object? parameter) => _canExecute?.Invoke(parameter) ?? true;
         public void Execute(object? parameter) => _execute(parameter);
-        public event EventHandler? CanExecuteChanged;
-        public void RaiseCanExecuteChanged() => CanExecuteChanged?.Invoke(this, EventArgs.Empty);
     }
 }
