@@ -11,10 +11,8 @@ namespace PdvNetApp.Infra.Factories
     {
         public AppDbContext CreateDbContext(string[] args)
         {
-            // Caminho para o appsettings.json do projeto WPF (UI)
             var basePath = Path.Combine(Directory.GetCurrentDirectory(), "../PdvNetApp");
 
-            // Procura o arquivo appsettings.json (copiado junto ao executável)
             var configuration = new ConfigurationBuilder()
                 .SetBasePath(basePath)
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)

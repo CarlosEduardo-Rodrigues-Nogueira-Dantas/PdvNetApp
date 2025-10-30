@@ -17,7 +17,6 @@ namespace PdvNetApp.UI.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        // Método auxiliar para alterar o valor de uma propriedade e notificar a mudança
         protected bool SetProperty<T>(ref T field, T value, [CallerMemberName] string? propertyName = null)
         {
             if (Equals(field, value)) return false;

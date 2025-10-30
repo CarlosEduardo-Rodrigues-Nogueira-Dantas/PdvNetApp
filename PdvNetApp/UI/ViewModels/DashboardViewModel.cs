@@ -13,7 +13,6 @@ namespace PdvNetApp.UI.ViewModels
     {
         private readonly ProdutoService _produtoService;
 
-    // 🔹 Dados expostos na tela
     private int _totalProdutos;
     public int TotalProdutos
     {

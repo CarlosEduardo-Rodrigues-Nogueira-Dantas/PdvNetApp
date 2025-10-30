@@ -14,7 +14,6 @@ namespace PdvNetApp.UIWPF.Commands
             _canExecute = canExecute;
         }
 
-        // 🔹 Aqui conectamos o evento ao CommandManager do WPF
         public event EventHandler? CanExecuteChanged
         {
             add => CommandManager.RequerySuggested += value;
