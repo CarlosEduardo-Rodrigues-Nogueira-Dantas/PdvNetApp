@@ -29,10 +29,6 @@ A aplicação segue uma arquitetura limpa (Clean Architecture), dividida em cama
 
 ---
 
-<img width="928" height="377" alt="image" src="https://github.com/user-attachments/assets/684d4478-3149-42e5-810b-4edd6aa1f1e2" />
-
----
-
 🧩 Funcionalidades
 🟢 CRUD de Produtos
 
