@@ -33,7 +33,7 @@
 
         <Label Grid.Row="1" Content="Preço:"/>
         <TextBox Grid.Row="1" Margin="80 0 0 10"
-                 Text="{Binding Produto.Preco, Converter={StaticResource DecimalConverter}, UpdateSourceTrigger=PropertyChanged}"
+                 Text="{Binding Produto.Preco, Converter={StaticResource DecimalConverter}, UpdateSourceTrigger=PropertyChanged}" 
                  Width="220"
                  AutomationProperties.HelpText="Digite o preço do produto"
                  TextWrapping="Wrap"/>
@@ -41,6 +41,7 @@
         <Label Grid.Row="2" Content="Quantidade:"/>
         <TextBox Grid.Row="2" Margin="80 0 0 10"
                  Text="{Binding Produto.Quantidade, UpdateSourceTrigger=PropertyChanged}"
+                 PreviewTextInput="Quantidade_PreviewTextInput"
                  Width="220"/>
 
         <Label Grid.Row="3" Content="Descrição:"/>

@@ -63,5 +63,10 @@ namespace PdvNetApp.UI.View
 
             _isUpdatingText = false;
         }
+        private void Quantidade_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+"); // tudo que NÃO é número
+            e.Handled = regex.IsMatch(e.Text);
+        }
     }
 }
