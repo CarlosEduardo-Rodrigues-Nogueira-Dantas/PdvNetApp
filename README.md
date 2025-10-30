@@ -48,10 +48,7 @@ As validações estão implementadas no ProdutoFormViewModel, antes de salvar:
 
 
 Campo	Regra
-Nome	Obrigatório
-Preço	Obrigatório e maior que 0
-Quantidade	Obrigatória e maior que 0
-Descrição	Opcional
+Nome(Obrigatório),Preço(Obrigatório e maior que 0), Quantidade(Obrigatória e maior que 0)
 
 <img width="523" height="348" alt="image" src="https://github.com/user-attachments/assets/0de79d6a-bcec-4964-99a8-184d7aa07457" />
 
