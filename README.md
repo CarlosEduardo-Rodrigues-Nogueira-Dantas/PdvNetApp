@@ -53,24 +53,7 @@ Preço	Obrigatório e maior que 0
 Quantidade	Obrigatória e maior que 0
 Descrição	Opcional
 
-Exemplo:
-if (string.IsNullOrWhiteSpace(Produto.Nome))
-{
-    MessageBox.Show("O nome do produto é obrigatório.");
-    return;
-}
-
-if (Produto.Preco <= 0)
-{
-    MessageBox.Show("O preço deve ser maior que zero.");
-    return;
-}
-
-if (Produto.Quantidade <= 0)
-{
-    MessageBox.Show("A quantidade deve ser maior que zero.");
-    return;
-}
+<img width="523" height="348" alt="image" src="https://github.com/user-attachments/assets/0de79d6a-bcec-4964-99a8-184d7aa07457" />
 
 ---
 
@@ -142,7 +125,6 @@ Realiza cálculos estatísticos e apresenta relatórios de estoque.
 ✅ Dashboard com relatórios dinâmicos
 ✅ Arquitetura limpa e de fácil manutenção
 
-
 ---
 
 ## 🚀 Como Configurar e Executar o Projeto
@@ -158,11 +140,17 @@ Install-Package Microsoft.EntityFrameworkCore.Tools
 Install-Package Microsoft.Extensions.Configuration
 Install-Package Microsoft.Extensions.Configuration.Json
 Install-Package Microsoft.Extensions.DependencyInjection
+Install-Package Microsoft.Extensions.Design
+Install-Package Microsoft.Extensions.Binder
+Install-Package Microsoft.Extensions.FileExtensions
+Install-Package Microsoft.Extensions.DependencyInjection.Abstractions
+Install-Package Newtonsoft.json
+Install-Package System.Diagnostics.Tools
 
 # Cria a primeira migration
 Add-Migration InitialCreate
 
-# Aplica as alterações no banco
+# Aplica as alterações no banco, caso não tenha irá criar um Banco para ti, por meio do DbContext + Entidades.
 Update-Database
 
 ✅Add-Migration → gera o script (plano de mudança).
