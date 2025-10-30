@@ -15,8 +15,8 @@ using System.Windows.Input;
 
 namespace PdvNetApp.UI.ViewModels
 {
-     public class MainViewModel : ViewModelBase
-     {
+    public class MainViewModel : ViewModelBase
+    {
         private readonly ProdutoService _service;
 
         public ObservableCollection<Produto> Produtos { get; } = new();
@@ -38,11 +38,7 @@ namespace PdvNetApp.UI.ViewModels
         public ICommand EditarCommand { get; }
         public ICommand ExcluirCommand { get; }
 
-        public ICommand AbrirDashboardCommand {get; } = new RelayCommand(_ =>
-        {
-            var dashboard = new DashboardWindow();
-            dashboard.Show();
-        });
+        public ICommand AbrirDashboardCommand { get; }
 
         public MainViewModel(ProdutoService service)
         {
@@ -51,6 +47,7 @@ namespace PdvNetApp.UI.ViewModels
             NovoCommand = new RelayCommand(_ => Novo());
             EditarCommand = new RelayCommand(_ => Editar(), _ => Selecionado != null);
             ExcluirCommand = new RelayCommand(async _ => await Excluir(), _ => Selecionado != null);
+            AbrirDashboardCommand = new RelayCommand(_ => AbrirDashboard());
 
             _ = Carregar();
         }
@@ -103,6 +100,16 @@ namespace PdvNetApp.UI.ViewModels
                 Produtos.Remove(Selecionado);
             }
         }
-     
-     }
+
+        private void AbrirDashboard()  
+        {
+            var vm = new DashboardViewModel(_service);
+            var dashboard = new DashboardWindow
+            {
+                DataContext = vm,
+            };
+            dashboard.ShowDialog();
+        }
+
+    }
 }

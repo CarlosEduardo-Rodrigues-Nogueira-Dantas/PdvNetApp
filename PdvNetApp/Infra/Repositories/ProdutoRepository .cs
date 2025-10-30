@@ -13,21 +13,17 @@ namespace PdvNetApp.Infra.Repositories
     public class ProdutoRepository : IProdutoRepository
     {
         private readonly AppDbContext _context;
+        public ProdutoRepository(AppDbContext context) => _context = context;
 
-        public ProdutoRepository(AppDbContext context)
-        {
-            _context = context;
-        }
+        public async Task<List<Produto>> GetAllAsync()
+            => await _context.Produtos.ToListAsync();
 
-        public async Task<IEnumerable<Produto>> GetAllAsync() =>
-            await _context.Produtos.AsNoTracking().ToListAsync();
-
-        public async Task<Produto?> GetByIdAsync(int id) =>
-            await _context.Produtos.FindAsync(id);
+        public async Task<Produto?> GetByIdAsync(int id)
+            => await _context.Produtos.FindAsync(id);
 
         public async Task AddAsync(Produto produto)
         {
-            _context.Produtos.Add(produto);
+            await _context.Produtos.AddAsync(produto);
             await _context.SaveChangesAsync();
         }
 
@@ -39,12 +35,8 @@ namespace PdvNetApp.Infra.Repositories
 
         public async Task DeleteAsync(int id)
         {
-            var entity = await _context.Produtos.FindAsync(id);
-            if (entity != null)
-            {
-                _context.Produtos.Remove(entity);
-                await _context.SaveChangesAsync();
-            }
+            var p = await GetByIdAsync(id);
+            if (p != null) { _context.Produtos.Remove(p); await _context.SaveChangesAsync(); }
         }
     }
 }

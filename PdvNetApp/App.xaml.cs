@@ -50,6 +50,7 @@ namespace PdvNetApp
             services.AddScoped<ProdutoService>();
             services.AddTransient<MainViewModel>();
             services.AddTransient<MainWindow>();
+            services.AddTransient<DashboardViewModel>();
 
             Services = services.BuildServiceProvider();
         }
